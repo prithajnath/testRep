@@ -1,2 +1,7 @@
 hello world
+<<<<<<< HEAD
 This is just to check !
+=======
+Editing from Ubuntu 15.10
+Editing from Github
+>>>>>>> e9fd7a07986fa689a329eeb628092f34dd8e986a
