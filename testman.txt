@@ -1,4 +1,4 @@
-hello world
-Editing from Ubuntu 15.10
-Editing from Github
-JUST CHECKING!
+DISTRIB_ID=LinuxMint
+DISTRIB_RELEASE=17.2
+DISTRIB_CODENAME=rafaela
+DISTRIB_DESCRIPTION="Linux Mint 17.2 Rafaela"
