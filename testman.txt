@@ -11,3 +11,4 @@ Linux 4.2.0-27-generic (prithaj-Aspire-M5-583P) 	02/03/2016 	_x86_64_	(4 CPU)
 01:54:28 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
 01:54:28 PM  all    4.46    0.07    2.33    1.96    0.00    0.01    0.00    0.00    0.00   91.18
 
+http://www.sbf5.com/~cduan/technical/git/git-1.shtml
