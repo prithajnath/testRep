@@ -2,3 +2,5 @@ DISTRIB_ID=LinuxMint
 DISTRIB_RELEASE=17.2
 DISTRIB_CODENAME=rafaela
 DISTRIB_DESCRIPTION="Linux Mint 17.2 Rafaela"
+
+Another test in CS lab
