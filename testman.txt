@@ -14,8 +14,14 @@ Linux 4.2.0-27-generic (prithaj-Aspire-M5-583P) 	02/03/2016 	_x86_64_	(4 CPU)
 http://www.sbf5.com/~cduan/technical/git/git-1.shtml
 hello again
 <<<<<<< HEAD
+<<<<<<< HEAD
 haha weiner
 
+=======
+Hello.
+It's me.
+I was wondering if after all these years you'd like to meet.
+>>>>>>> be080bf578904b77531128307e7ee9e319a83a3b
 =======
 hello PLATTS SEC!
 >>>>>>> e39dd482d74ed0ff4e0908c1fb183824d95e0b3b
