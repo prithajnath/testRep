@@ -10,9 +10,10 @@ my $dbh;
 
 
 
-#$ENV/
+#/files/csc341/files/csc341
 sub start()
-{ $dbh=DBI->connect("dbi:SQLite:/local/files/scrai002/csc341/blaise/BlaiseTracks.db",undef,undef,{AutoCommit => 1});
+{ #$dbh=DBI->connect("dbi:SQLite:/local/files/scrai002/csc341/blaise/BlaiseTracks.db",undef,undef,{AutoCommit => 1});
+  $dbh=DBI->connect("dbi:SQLite:/home/pnath001/files/csc341/files/csc341/blaise/BlaiseTracks.db",undef,undef,{AutoCommit => 1});
   die "database connect error:", $DBI::errstr unless($dbh);
 }
 
@@ -65,12 +66,14 @@ sub RunDetails($){
 sub updateRun{
 
 	my (@activityid,@runid) = @_;
-	my $runid = shift;
-        my $activityid = shift;
+	my $activityid = shift;
+        my $runid = shift;
 	my $sql = 'update run set activityid=? where rowid=?';
 	my $sth = $dbh->prepare($sql);
 	my $rv=$sth->execute($activityid,$runid);
-	die "Execute failed", $sth->errstr unless($rv);
+	#die "Execute failed", $sth->errstr unless($rv);
+	if ($rv){return 1}
+	else{return 0}
 
 
 }
@@ -96,6 +99,6 @@ start;
 ListofRuns();
 RunDetails(147);
 activityList();
-#updateRun(48,87);
+updateRun(456,147);
 
 stop;
