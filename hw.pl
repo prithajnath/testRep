@@ -73,7 +73,7 @@ sub updateRun{
 	my $rv=$sth->execute($activityid,$runid);
 	#die "Execute failed", $sth->errstr unless($rv);
 	if ($rv){return 1}
-	else{return 0}
+	else{return undef}
 
 
 }
