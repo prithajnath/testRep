@@ -26,7 +26,7 @@ sub stop()
 
 sub ListofRuns(){
 
-	my $sql = 'select r.rowid, r.startSecs,a.name from run as r inner join activity as a on a.categoryid=r.activityid limit 20;';
+	my $sql = 'select r.rowid, r.startSecs,a.name from run as r inner join activity as a on a.categoryid=r.activityid;';
 	my $sth = $dbh->prepare($sql);
 	die "Prepare statement failed", $dbh->errstr unless($sth);
 	my $rv=$sth->execute();
