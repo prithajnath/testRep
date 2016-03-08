@@ -1,4 +1,7 @@
 #!/usr/bin/env perl
+#Prithaj Nath
+#csc341
+#HW3
 
 use strict;
 use warnings;
