@@ -1,73 +1,148 @@
-
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-key = "SECRT"
+def rem_dep(astring):
 
-my_array = []
+     my_set = set(astring)
 
-my_array.append(list(key))
+     new_string = ""
 
-my_len = len(key)
+     for i in astring:
 
-i = 0
+          if i in my_set:
+               new_string = new_string + i
+               my_set = my_set - set(i)
 
-#print(list(repetitions("SECRET")))
+     return new_string
+
+def cipherkey(key):
+
+    #someshit
+    my_key = rem_dep(key)
+
+    my_array = []
+
+    my_array.append(list(my_key))
+
+    my_len = len(my_key)
+
+    i = 0
+
+    #print(list(repetitions("SECRET")))
 
 
-#make new_letters here
+    #make new_letters here
 
-for j in range(len(key)):
+    my_letters = letters
 
-    letters = letters.translate(None,key[j])
+    for j in range(my_len):
 
-print(letters)
+        my_letters = my_letters.translate(None,my_key[j])
+        #print("This is j :"+str(j))
+
+    #print(letters)
 
 
-val = 0
-for i in range(len(key)):
+    val = 0
 
-    my_array.append(list(letters[val:val+my_len]))
-    val = my_len + val
+    if ((26-my_len)%my_len==0):
+         my_range = (26-my_len)/my_len
+         for p in range(my_range):
+              #something
+              my_array.append(list(my_letters[val:val+my_len]))
+              val = my_len + val
+    else:
+         my_range = ((26-my_len)/my_len)+1
+         for p in range(my_range):
+              
+              #something
+              my_array.append(list(my_letters[val:val+my_len]))
+              val = my_len + val
 
-print(my_array)
 
-my_column = []
-my_string = ""
+    #print(my_array)
 
-for k in range(len(key)):
-
-    for l in range(len(my_array)):
-
-        try:
-            my_string = my_string + my_array[l][k]
-        except IndexError:
-            continue                    
-
-    my_column.append(my_string)
+    my_column = []
     my_string = ""
-print(my_column)
 
-sort_string = ""
+    for k in range(my_len):
 
-for x in my_column:
-    sort_string = sort_string + x[0]
-ref = sorted(list(sort_string))
-print(ref)
-new_column = []
-for y in ref:
+        for l in range(len(my_array)):
 
-    for z in my_column:
+            try:
+                my_string = my_string + my_array[l][k]
+            except IndexError:
+                continue                    
 
-        if y in z:
-            new_column.append(z)
+        my_column.append(my_string)
+        my_string = ""
 
-        else:
-            continue
+    '''
+    for k in my_array:
+         if k:
+              #something
+              my_column.append("".join(k))
+    #print("This is my_array: "+str(my_array))
+    print("This is my_column: "+ str(my_column))
+    '''
+    sort_string = ""
+
+    for x in my_column:
+        sort_string = sort_string + x[0]
+    quickref = sorted(list(sort_string))
+    #print(quickref)
+    new_column = []
+    for y in quickref:
+
+        for z in my_column:
+
+            if y in z:
+                new_column.append(z)
+
+            else:
+                continue
 
 
 
-print(new_column)
+    #print("This is new_column: "+ str(new_column))
 
-comp_string = "".join(new_column)
-print(comp_string)
-print(len(comp_string))
+    comp_string = "".join(new_column)
+    #print("This is comp_string: "+ str(comp_string)+ str(len(comp_string)))
+    return comp_string
+
+def uncipher(key,text):
+
+    my_string = ""
+    letter_list = list(letters)
+
+    ref = list(cipherkey(key))
+
+    #print("This is ref"+str(ref)+" "+str(len(ref)))
+
+    for i in text:
+        my_string = my_string + letter_list[ref.index(i)]
+
+    return my_string
+
+#print(uncipher("SECRET","EBINV"))
+
+ciphertext = "HNXWF SRDCE ZXBCO QDUDB QAAMO MZYDG PNGEH OUCTW AUUDU MQVIT XHKRC TWRRS FCBKS IGTMD FPDJI PBIBT GCXDX FYWDT XRRQZ VGGME UOAGQ UKXVT IEZYP TKVCV CHCWK QICUP QFKOV YIEEU HDYIJ LGKWG APAUV RMSAW DMMZC KYHNS HTWOC LOKUL SYMCH RCXIK BGURF ARQZG EZNOT YXTGR"
+
+key = "MAGNET"
+
+#print("The new key is " + str(rem_dep(key)))
+
+cipherlist = ciphertext.split(" ")
+
+my_list = []
+
+for i in cipherlist:
+
+    my_list.append(uncipher(key,i))
+
+print(" ".join(my_list))
+    
+        
+
+    
+    
+
