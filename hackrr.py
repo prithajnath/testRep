@@ -1,3 +1,4 @@
+x = int(raw_input())
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def rem_dep(astring):
@@ -123,26 +124,13 @@ def uncipher(key,text):
 
     return my_string
 
-#print(uncipher("SECRET","EBINV"))
 
-ciphertext = "HNXWF SRDCE ZXBCO QDUDB QAAMO MZYDG PNGEH OUCTW AUUDU MQVIT XHKRC TWRRS FCBKS IGTMD FPDJI PBIBT GCXDX FYWDT XRRQZ VGGME UOAGQ UKXVT IEZYP TKVCV CHCWK QICUP QFKOV YIEEU HDYIJ LGKWG APAUV RMSAW DMMZC KYHNS HTWOC LOKUL SYMCH RCXIK BGURF ARQZG EZNOT YXTGR"
-
-key = "MAGNET"
-
-#print("The new key is " + str(rem_dep(key)))
-
-cipherlist = ciphertext.split(" ")
-
-my_list = []
-
-for i in cipherlist:
-
-    my_list.append(uncipher(key,i))
-
-print(" ".join(my_list))
+for k in range(x):
     
-        
-
-    
-    
-
+    out_list = []
+    key = raw_input()
+    message = raw_input().split(" ")
+    for u in message:
+        out_list.append(uncipher(key,u))
+    out_string = " ".join(out_list)
+    print(out_string)
