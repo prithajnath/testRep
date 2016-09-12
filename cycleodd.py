@@ -8,149 +8,102 @@ import sys
 
 
 #QUEUE keeps track of which vertex to visit next (for BFS)
-
 class Queue:
-
      def __init__(self):
 
           self.items = []
-
      def is_empty(self):
-
           return self.items == []
-
      def enqueue(self,item):
-
           self.items.insert(0,item)
-
      def dequeue(self):
-
           return self.items.pop()
-
      def size(self):
-
           return len(self.items)
 
-
 #GRAPH (adjacency list)
-
 class Vertex:
-
      def __init__(self,key):
-
           self.id = key
           self.connectedTo={} #dictionary which contains all the other vertices it is connected to
           self.pred = [] #for BFS tree / a list because we are dealing with cycles
           self.color = "white" #for BFS tree
           self.bp_color = "null"
 
-
      def addNeighbor(self,nbr,weight=0):
-
           self.connectedTo[nbr] = weight #nbr is another Vertex object 
 
      def __str__(self):
-
           
           return str(self.id) 
 
      def getConnections(self):
-
           return self.connectedTo.keys()
 
      def getId(self):
-
           return self.id
 
      def getWeight(self,nbr):
-
           return self.connectedTo[nbr]
 
      def getColor(self):
-
           return self.color
      
      def setColor(self,color):
-
           self.color = color
 
      def setPred(self,node):
-
           self.pred.append(node)
 
      def getPred(self):
-
           return self.pred
 
      def change_color(self,a):
-
           self.bp_color = a
 
 
      def get_bp_color(self):
-
           return self.bp_color
 
-
 class Graph:
-
      def __init__(self):
-
           self.vertList = {}  #this is the masterlist
           self.numVertices = 0
           self.bipartite = True
 
      def addVertex(self,key): #turn something into a Vertex object
-
           self.numVertices = self.numVertices + 1
-
           newVertex = Vertex(key)
-
           self.vertList[key] = newVertex #maps vertex names to vertex objects
-
           return newVertex
 
      def getVertex(self,n):
-
           if n in self.vertList:
-
                return self.vertList[n] #returns the Vertex object
           else:
-
                return None
 
      def __contains__(self,n):#tweak the built-in operator 'in'(containment check)
-
           return n in self.vertList #lets you iterate through the Vertex objects in Graph
 
      def addEdge(self,f,t,cost = 0):
-
           if f not in self.vertList: #if f is not a node in the graph
-
                nv = self.addVertex(f)
-
           if t not in self.vertList:     #if t is not a node in the graph
-
                nv = self.addVertex(t)
-
           self.vertList[f].addNeighbor(self.vertList[t], cost)
 
      def getVertices(self):
-
           return self.vertList.keys()
 
      def __iter__(self): # iterate over Vertex objects over the Graph
-
           return iter(self.vertList.values())
 
      def change_bp_ness(self,val):
-
           self.bipartite = val
 
      def is_bipartite(self):
-
           return self.bipartite
-
 
 #to color nodes
 def bp_color(node):
